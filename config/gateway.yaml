@@ -1,0 +1,24 @@
+apiVersion: "tanzu.vmware.com/v1"
+kind: SpringCloudGatewayRouteConfig
+metadata:
+  name: eightball-service-route
+spec:
+  service:
+    name: eightball
+    port: 8080
+  routes:
+    - predicates:
+        - Path=/eightball-service/**
+      filters:
+        - StripPrefix=1
+---
+apiVersion: "tanzu.vmware.com/v1"
+kind: SpringCloudGatewayMapping
+metadata:
+  name: eightball-service-mapping
+spec:
+  gatewayRef:
+    name: soi-gateway
+    namespace: apps
+  routeConfigRef:
+    name: eightball-service-route
