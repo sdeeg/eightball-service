@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>us.planet10</groupId>
-	<artifactId>eightball</artifactId>
+	<artifactId>eightball-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>eightball</name>
-	<description>Simple magic eightball app</description>
+	<name>eightball-service</name>
+	<description>Simple magic eightball service</description>
 	<properties>
 		<java.version>21</java.version>
 		<kotlin.version>1.9.23</kotlin.version>

@@ -4,10 +4,8 @@ kind: Workload
 metadata:
   labels:
     apps.tanzu.vmware.com/workload-type: server
-    app.kubernetes.io/part-of: app
-#    networking.knative.dev/visibility: cluster-local
-#    networking.knative.dev/disable-external-domain-tls: true
-  name: eightball
+    app.kubernetes.io/part-of: eightball
+  name: eightball-service
   namespace: apps
 spec:
   build:
@@ -18,9 +16,8 @@ spec:
     git:
       ref:
         branch: main
-      url: https://github.com/vmware-tanzu/application-accelerator-samples
-#    subPath: tanzu-java-web-app
-  params:
-    - name: annotations
-      value:
-        autoscaling.knative.dev/minScale: "1"
+      url: https://github.com/sdeeg/eightball-service.git
+#  params:
+#    - name: annotations
+#      value:
+#        autoscaling.knative.dev/minScale: "1"
