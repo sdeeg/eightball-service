@@ -1,0 +1,26 @@
+---
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  labels:
+    apps.tanzu.vmware.com/workload-type: server
+    app.kubernetes.io/part-of: app
+#    networking.knative.dev/visibility: cluster-local
+#    networking.knative.dev/disable-external-domain-tls: true
+  name: eightball
+  namespace: apps
+spec:
+  build:
+    env:
+    - name: BP_JVM_VERSION
+      value: "21"
+  source:
+    git:
+      ref:
+        branch: main
+      url: https://github.com/vmware-tanzu/application-accelerator-samples
+#    subPath: tanzu-java-web-app
+  params:
+    - name: annotations
+      value:
+        autoscaling.knative.dev/minScale: "1"
