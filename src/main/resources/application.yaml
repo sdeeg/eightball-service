@@ -1,7 +1,10 @@
 spring:
+  profiles:
+    active:
+    - production
+    default: production
   application:
     name: eightball
-  profile: production
 
 eightball-answers:
   defaultset: "classic"
